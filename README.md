@@ -38,7 +38,7 @@ npm install @ducnd.dev/vue-autocomplete
 <script setup lang="ts">
 import { ref } from 'vue'
 import { VAutoComplete } from '@ducnd.dev/vue-autocomplete'
-import '@ducnd.dev/vue-autocomplete/dist/vue-autocomplete.css'
+import '@ducnd.dev/vue-autocomplete/style.css'
 
 const selectedValue = ref('')
 const options = ref([
@@ -145,7 +145,15 @@ const onSelect = (user: User) => {
 
 ## Styling
 
-The component comes with default styles, but you can customize them by overriding the CSS classes:
+The component uses **scoped CSS** that is automatically extracted during the build process.
+
+**Important**: You must import the CSS file for styles to work:
+
+```javascript
+import '@ducnd.dev/vue-autocomplete/style.css'
+```
+
+You can customize the component by overriding the CSS classes:
 
 ```css
 .autocomplete {
@@ -172,6 +180,8 @@ The component comes with default styles, but you can customize them by overridin
   /* Loading indicator */
 }
 ```
+
+**Note**: The component uses scoped CSS attributes (e.g., `data-v-xxxxxx`), so you may need higher CSS specificity to override styles.
 
 ## TypeScript Support
 

@@ -1,6 +1,6 @@
 {
   "name": "@ducnd.dev/vue-autocomplete",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "type": "module",
   "license": "MIT",
   "homepage": "https://github.com/ducnd.dev/vue-autocomplete",
@@ -28,12 +28,14 @@
     "README.md",
     "LICENSE"
   ],
+  "styles": "dist/index.css",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
-    }
+    },
+    "./style.css": "./dist/style.css"
   },
   "peerDependencies": {
     "vue": "^3.5.18"

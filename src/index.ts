@@ -1,7 +1,9 @@
 import type { App } from 'vue'
 import VAutoComplete from './VAutoComplete.vue'
+
 export { VAutoComplete }
 export default VAutoComplete
+
 export interface VAutoCompleteProps<T> {
   modelValue: string
   fetchOptions?: (query: string) => Promise<T[]>
@@ -11,12 +13,14 @@ export interface VAutoCompleteProps<T> {
   valueKey?: string
   excludeValues?: string[]
 }
+
 export interface VAutoCompleteEmits<T> {
   (e: 'update:modelValue', value: string): void
   (e: 'select', option: T): void
   (e: 'search', query: string): void
   (e: 'error', error: unknown): void
 }
+
 export const install = (app: App) => {
   app.component('VAutoComplete', VAutoComplete)
 }

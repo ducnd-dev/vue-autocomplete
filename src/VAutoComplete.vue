@@ -1,5 +1,5 @@
 <template>
-  <div class="autocomplete">
+   <div class="autocomplete">
     <input
       type="text"
       v-model="searchTerm"
@@ -47,23 +47,9 @@
 
 <script setup lang="ts" generic="T">
 import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue';
+import type { VAutoCompleteEmits, VAutoCompleteProps } from './index';
 defineOptions({ name: 'VAutoComplete' })
 
-interface VAutoCompleteProps<T> {
-  modelValue: string
-  fetchOptions?: (query: string) => Promise<T[]>
-  items?: T[]
-  placeholder?: string
-  labelKey?: string
-  valueKey?: string
-  excludeValues?: string[]
-}
-interface VAutoCompleteEmits<T> {
-  (e: 'update:modelValue', value: string): void
-  (e: 'select', option: T): void
-  (e: 'search', query: string): void
-  (e: 'error', error: unknown): void
-}
 const props = defineProps<VAutoCompleteProps<T>>()
 
 const emits = defineEmits<VAutoCompleteEmits<T>>()

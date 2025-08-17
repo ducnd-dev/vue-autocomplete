@@ -8,7 +8,10 @@ export default defineConfig({
     vue(),
     dts({
       include: ['src/**/*'],
-      exclude: ['src/**/*.spec.ts', 'src/**/*.test.ts']
+      exclude: ['src/**/*.spec.ts', 'src/**/*.test.ts'],
+      insertTypesEntry: true,
+      rollupTypes: true,
+      tsconfigPath: './tsconfig.app.json'
     })
   ],
   build: {
@@ -23,8 +26,15 @@ export default defineConfig({
       output: {
         globals: {
           vue: 'Vue'
+        },
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name?.endsWith('.css')) {
+            return 'style.css'
+          }
+          return assetInfo.name || ''
         }
       }
     },
+    cssCodeSplit: false,
   }
 })
