@@ -217,6 +217,7 @@ const onSearch = debounce((e: Event) => {
     options.value = []
     selectedIndex.value = -1
     emits('update:modelValue', '')
+    emits('select', undefined)
     return
   }
   loadOptions(target.value)

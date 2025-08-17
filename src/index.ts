@@ -16,7 +16,7 @@ export interface VAutoCompleteProps<T> {
 
 export interface VAutoCompleteEmits<T> {
   (e: 'update:modelValue', value: string): void
-  (e: 'select', option: T): void
+  (e: 'select', option?: T): void
   (e: 'search', query: string): void
   (e: 'error', error: unknown): void
 }
